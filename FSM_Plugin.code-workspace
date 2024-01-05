@@ -1,0 +1,613 @@
+{
+	"folders": [
+		{
+			"name": "FSM_Plugin",
+			"path": "."
+		},
+		{
+			"name": "UE5",
+			"path": "P:\\DevPrograms\\Epic Games\\UE_5.3"
+		}
+	],
+	"settings": {
+		"typescript.tsc.autoDetect": "off",
+		"npm.autoDetect": "off"
+	},
+	"extensions": {
+		"recommendations": [
+			"ms-vscode.cpptools",
+			"ms-dotnettools.csharp"
+		]
+	},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "FSM_Plugin Win64 Debug Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"FSM_Plugin",
+					"Win64",
+					"Debug",
+					"P:\\Projects\\UE\\FSM_Plugin\\FSM_Plugin.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "P:\\DevPrograms\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "FSM_Plugin Win64 Debug Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"FSM_Plugin",
+					"Win64",
+					"Debug",
+					"P:\\Projects\\UE\\FSM_Plugin\\FSM_Plugin.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"FSM_Plugin Win64 Debug Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "P:\\DevPrograms\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "FSM_Plugin Win64 Debug Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"FSM_Plugin",
+					"Win64",
+					"Debug",
+					"P:\\Projects\\UE\\FSM_Plugin\\FSM_Plugin.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "P:\\DevPrograms\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "FSM_Plugin Win64 DebugGame Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"FSM_Plugin",
+					"Win64",
+					"DebugGame",
+					"P:\\Projects\\UE\\FSM_Plugin\\FSM_Plugin.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "P:\\DevPrograms\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "FSM_Plugin Win64 DebugGame Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"FSM_Plugin",
+					"Win64",
+					"DebugGame",
+					"P:\\Projects\\UE\\FSM_Plugin\\FSM_Plugin.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"FSM_Plugin Win64 DebugGame Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "P:\\DevPrograms\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "FSM_Plugin Win64 DebugGame Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"FSM_Plugin",
+					"Win64",
+					"DebugGame",
+					"P:\\Projects\\UE\\FSM_Plugin\\FSM_Plugin.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "P:\\DevPrograms\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "FSM_Plugin Win64 Development Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"FSM_Plugin",
+					"Win64",
+					"Development",
+					"P:\\Projects\\UE\\FSM_Plugin\\FSM_Plugin.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "P:\\DevPrograms\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "FSM_Plugin Win64 Development Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"FSM_Plugin",
+					"Win64",
+					"Development",
+					"P:\\Projects\\UE\\FSM_Plugin\\FSM_Plugin.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"FSM_Plugin Win64 Development Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "P:\\DevPrograms\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "FSM_Plugin Win64 Development Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"FSM_Plugin",
+					"Win64",
+					"Development",
+					"P:\\Projects\\UE\\FSM_Plugin\\FSM_Plugin.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "P:\\DevPrograms\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "FSM_Plugin Win64 Test Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"FSM_Plugin",
+					"Win64",
+					"Test",
+					"P:\\Projects\\UE\\FSM_Plugin\\FSM_Plugin.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "P:\\DevPrograms\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "FSM_Plugin Win64 Test Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"FSM_Plugin",
+					"Win64",
+					"Test",
+					"P:\\Projects\\UE\\FSM_Plugin\\FSM_Plugin.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"FSM_Plugin Win64 Test Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "P:\\DevPrograms\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "FSM_Plugin Win64 Test Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"FSM_Plugin",
+					"Win64",
+					"Test",
+					"P:\\Projects\\UE\\FSM_Plugin\\FSM_Plugin.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "P:\\DevPrograms\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "FSM_Plugin Win64 Shipping Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"FSM_Plugin",
+					"Win64",
+					"Shipping",
+					"P:\\Projects\\UE\\FSM_Plugin\\FSM_Plugin.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "P:\\DevPrograms\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "FSM_Plugin Win64 Shipping Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"FSM_Plugin",
+					"Win64",
+					"Shipping",
+					"P:\\Projects\\UE\\FSM_Plugin\\FSM_Plugin.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"FSM_Plugin Win64 Shipping Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "P:\\DevPrograms\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "FSM_Plugin Win64 Shipping Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"FSM_Plugin",
+					"Win64",
+					"Shipping",
+					"P:\\Projects\\UE\\FSM_Plugin\\FSM_Plugin.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "P:\\DevPrograms\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "FSM_PluginEditor Win64 Debug Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"FSM_PluginEditor",
+					"Win64",
+					"Debug",
+					"P:\\Projects\\UE\\FSM_Plugin\\FSM_Plugin.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "P:\\DevPrograms\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "FSM_PluginEditor Win64 Debug Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"FSM_PluginEditor",
+					"Win64",
+					"Debug",
+					"P:\\Projects\\UE\\FSM_Plugin\\FSM_Plugin.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"FSM_PluginEditor Win64 Debug Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "P:\\DevPrograms\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "FSM_PluginEditor Win64 Debug Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"FSM_PluginEditor",
+					"Win64",
+					"Debug",
+					"P:\\Projects\\UE\\FSM_Plugin\\FSM_Plugin.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "P:\\DevPrograms\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "FSM_PluginEditor Win64 DebugGame Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"FSM_PluginEditor",
+					"Win64",
+					"DebugGame",
+					"P:\\Projects\\UE\\FSM_Plugin\\FSM_Plugin.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "P:\\DevPrograms\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "FSM_PluginEditor Win64 DebugGame Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"FSM_PluginEditor",
+					"Win64",
+					"DebugGame",
+					"P:\\Projects\\UE\\FSM_Plugin\\FSM_Plugin.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"FSM_PluginEditor Win64 DebugGame Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "P:\\DevPrograms\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "FSM_PluginEditor Win64 DebugGame Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"FSM_PluginEditor",
+					"Win64",
+					"DebugGame",
+					"P:\\Projects\\UE\\FSM_Plugin\\FSM_Plugin.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "P:\\DevPrograms\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "FSM_PluginEditor Win64 Development Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"FSM_PluginEditor",
+					"Win64",
+					"Development",
+					"P:\\Projects\\UE\\FSM_Plugin\\FSM_Plugin.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "P:\\DevPrograms\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "FSM_PluginEditor Win64 Development Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"FSM_PluginEditor",
+					"Win64",
+					"Development",
+					"P:\\Projects\\UE\\FSM_Plugin\\FSM_Plugin.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"FSM_PluginEditor Win64 Development Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "P:\\DevPrograms\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "FSM_PluginEditor Win64 Development Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"FSM_PluginEditor",
+					"Win64",
+					"Development",
+					"P:\\Projects\\UE\\FSM_Plugin\\FSM_Plugin.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "P:\\DevPrograms\\Epic Games\\UE_5.3"
+				}
+			}
+		]
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "Launch FSM_Plugin (Debug)",
+				"request": "launch",
+				"program": "P:\\Projects\\UE\\FSM_Plugin\\Binaries\\Win64\\UnrealGame-Win64-Debug.exe",
+				"preLaunchTask": "FSM_Plugin Win64 Debug Build",
+				"args": [
+				],
+				"cwd": "P:\\DevPrograms\\Epic Games\\UE_5.3",
+				"stopAtEntry": false,
+				"console": "externalTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "P:\\DevPrograms\\Epic Games\\UE_5.3\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "P:\\DevPrograms\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"name": "Launch FSM_Plugin (DebugGame)",
+				"request": "launch",
+				"program": "P:\\Projects\\UE\\FSM_Plugin\\Binaries\\Win64\\UnrealGame-Win64-DebugGame.exe",
+				"preLaunchTask": "FSM_Plugin Win64 DebugGame Build",
+				"args": [
+				],
+				"cwd": "P:\\DevPrograms\\Epic Games\\UE_5.3",
+				"stopAtEntry": false,
+				"console": "externalTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "P:\\DevPrograms\\Epic Games\\UE_5.3\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "P:\\DevPrograms\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"name": "Launch FSM_Plugin (Development)",
+				"request": "launch",
+				"program": "P:\\Projects\\UE\\FSM_Plugin\\Binaries\\Win64\\UnrealGame.exe",
+				"preLaunchTask": "FSM_Plugin Win64 Development Build",
+				"args": [
+				],
+				"cwd": "P:\\DevPrograms\\Epic Games\\UE_5.3",
+				"stopAtEntry": false,
+				"console": "externalTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "P:\\DevPrograms\\Epic Games\\UE_5.3\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "P:\\DevPrograms\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"name": "Launch FSM_Plugin (Test)",
+				"request": "launch",
+				"program": "P:\\Projects\\UE\\FSM_Plugin\\Binaries\\Win64\\UnrealGame-Win64-Test.exe",
+				"preLaunchTask": "FSM_Plugin Win64 Test Build",
+				"args": [
+				],
+				"cwd": "P:\\DevPrograms\\Epic Games\\UE_5.3",
+				"stopAtEntry": false,
+				"console": "externalTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "P:\\DevPrograms\\Epic Games\\UE_5.3\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "P:\\DevPrograms\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"name": "Launch FSM_Plugin (Shipping)",
+				"request": "launch",
+				"program": "P:\\Projects\\UE\\FSM_Plugin\\Binaries\\Win64\\UnrealGame-Win64-Shipping.exe",
+				"preLaunchTask": "FSM_Plugin Win64 Shipping Build",
+				"args": [
+				],
+				"cwd": "P:\\DevPrograms\\Epic Games\\UE_5.3",
+				"stopAtEntry": false,
+				"console": "externalTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "P:\\DevPrograms\\Epic Games\\UE_5.3\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "P:\\DevPrograms\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"name": "Launch FSM_PluginEditor (Debug)",
+				"request": "launch",
+				"program": "P:\\DevPrograms\\Epic Games\\UE_5.3\\Engine\\Binaries\\Win64\\UnrealEditor-Win64-Debug.exe",
+				"preLaunchTask": "FSM_PluginEditor Win64 Debug Build",
+				"args": [
+					"P:\\Projects\\UE\\FSM_Plugin\\FSM_Plugin.uproject"
+				],
+				"cwd": "P:\\DevPrograms\\Epic Games\\UE_5.3",
+				"stopAtEntry": false,
+				"console": "externalTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "P:\\DevPrograms\\Epic Games\\UE_5.3\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "P:\\DevPrograms\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"name": "Launch FSM_PluginEditor (DebugGame)",
+				"request": "launch",
+				"program": "P:\\DevPrograms\\Epic Games\\UE_5.3\\Engine\\Binaries\\Win64\\UnrealEditor-Win64-DebugGame.exe",
+				"preLaunchTask": "FSM_PluginEditor Win64 DebugGame Build",
+				"args": [
+					"P:\\Projects\\UE\\FSM_Plugin\\FSM_Plugin.uproject"
+				],
+				"cwd": "P:\\DevPrograms\\Epic Games\\UE_5.3",
+				"stopAtEntry": false,
+				"console": "externalTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "P:\\DevPrograms\\Epic Games\\UE_5.3\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "P:\\DevPrograms\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"name": "Launch FSM_PluginEditor (Development)",
+				"request": "launch",
+				"program": "P:\\DevPrograms\\Epic Games\\UE_5.3\\Engine\\Binaries\\Win64\\UnrealEditor.exe",
+				"preLaunchTask": "FSM_PluginEditor Win64 Development Build",
+				"args": [
+					"P:\\Projects\\UE\\FSM_Plugin\\FSM_Plugin.uproject"
+				],
+				"cwd": "P:\\DevPrograms\\Epic Games\\UE_5.3",
+				"stopAtEntry": false,
+				"console": "externalTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "P:\\DevPrograms\\Epic Games\\UE_5.3\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "P:\\DevPrograms\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"name": "Generate Project Files",
+				"type": "coreclr",
+				"request": "launch",
+				"preLaunchTask": "UnrealBuildTool Win64 Development Build",
+				"program": "P:\\DevPrograms\\Epic Games\\UE_5.3\\Engine\\Build\\BatchFiles\\RunUBT.bat",
+				"args": [
+					"-projectfiles",
+					"-vscode",
+					"-project=P:\\Projects\\UE\\FSM_Plugin\\FSM_Plugin.uproject",
+					"-game",
+					"-engine",
+					"-dotnet"
+				],
+				"console": "externalTerminal",
+				"stopAtEntry": false,
+				"cwd": "P:\\DevPrograms\\Epic Games\\UE_5.3"
+			}
+		]
+	}
+}
