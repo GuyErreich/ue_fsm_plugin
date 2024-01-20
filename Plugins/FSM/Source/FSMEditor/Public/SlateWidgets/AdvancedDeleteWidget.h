@@ -8,7 +8,8 @@ class SAdvancedDeleteTab : public SCompoundWidget
 {
 	SLATE_BEGIN_ARGS(SAdvancedDeleteTab) {}
 
-	SLATE_ARGUMENT(FString, TestString)
+	SLATE_ARGUMENT(TArray<TSharedPtr<FAssetData>>, AssetsDataArray)
+
 	SLATE_END_ARGS()
 
 public:

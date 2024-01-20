@@ -218,6 +218,11 @@ TSharedRef<SDockTab> FFSMEditorModule::OnSpawnAdvancedDeleteTab(const FSpawnTabA
 	];
 }
 
+TArray<TSharedRef<FAssetData>> FFSMEditorModule::GetAllAssetDataUnderSelectedFolder()
+{
+    return TArray<TSharedRef<FAssetData>>();
+}
+
 #pragma endregion
 #undef LOCTEXT_NAMESPACE
 	
