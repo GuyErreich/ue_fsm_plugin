@@ -214,13 +214,35 @@ TSharedRef<SDockTab> FFSMEditorModule::OnSpawnAdvancedDeleteTab(const FSpawnTabA
 	SNew(SDockTab).TabRole(ETabRole::NomadTab)
 	[
 		SNew(SAdvancedDeleteTab)
-		.TestString(TEXT("I am passing data"))
+		.AssetsData(GetAllAssetDataUnderSelectedFolder())
 	];
 }
 
-TArray<TSharedRef<FAssetData>> FFSMEditorModule::GetAllAssetDataUnderSelectedFolder()
+TArray<TSharedPtr<FAssetData>> FFSMEditorModule::GetAllAssetDataUnderSelectedFolder()
 {
-    return TArray<TSharedRef<FAssetData>>();
+	TArray<TSharedPtr<FAssetData>> AvailableAssetData;
+
+	TArray<FString> AssetsPathNames = UEditorAssetLibrary::ListAssets(FolderPathsSelected[0]);
+
+	for (const FString& AssetPathName : AssetsPathNames)
+	{
+		//Don't touch root folder
+		if (AssetPathName.Contains(TEXT("Developers")) || 
+			AssetPathName.Contains(TEXT("Collections")) ||
+			AssetPathName.Contains(TEXT("__ExternalActors__")) ||
+			AssetPathName.Contains(TEXT("__ExternalObjects__")))
+		{
+			continue;
+		}
+
+		if (!UEditorAssetLibrary::DoesAssetExist(AssetPathName)) continue;
+
+		const FAssetData Data = UEditorAssetLibrary::FindAssetData(AssetPathName);
+
+		AvailableAssetData.Add(MakeShared<FAssetData>(Data));
+	}
+
+	return AvailableAssetData;
 }
 
 #pragma endregion

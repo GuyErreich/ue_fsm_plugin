@@ -7,6 +7,8 @@ void SAdvancedDeleteTab::Construct(const FArguments &args)
 {
     bCanSupportFocus = true;
 
+    StoredAssetsData = args._AssetsData;
+
     FSlateFontInfo TitleTestFont = FCoreStyle::Get().GetFontStyle(FName("EmbossedText"));
     TitleTestFont.Size = 30;
 
@@ -34,6 +36,14 @@ void SAdvancedDeleteTab::Construct(const FArguments &args)
         .AutoHeight()
         [
             SNew(SScrollBox)
+
+            +SScrollBox::Slot() 
+            [
+                SNew(SListView<TSharedPtr<FAssetData>>)
+                .ItemHeight(24.f)
+                .ListItemsSource(&StoredAssetsData)
+                .OnGenerateRow(this, &SAdvancedDeleteTab::OnGenerateRowForList)
+            ]
         ]
 
         +SVerticalBox::Slot()
@@ -42,4 +52,18 @@ void SAdvancedDeleteTab::Construct(const FArguments &args)
             SNew(SHorizontalBox)
         ]
     ];
+}
+
+TSharedRef<ITableRow> SAdvancedDeleteTab::OnGenerateRowForList(TSharedPtr<FAssetData> AssetData, const TSharedRef<STableViewBase> &OwnerTable)
+{
+    const FString DisplayAssetName = AssetData->AssetName.ToString();
+
+    TSharedRef<STableRow<TSharedPtr<FAssetData>>> ListViewRowWidget = 
+    SNew(STableRow<TSharedPtr<FAssetData>>, OwnerTable)
+    [
+        SNew(STextBlock)
+        .Text(FText::FromString(DisplayAssetName))
+    ];
+
+    return ListViewRowWidget;
 }

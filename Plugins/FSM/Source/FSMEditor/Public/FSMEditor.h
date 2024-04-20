@@ -37,7 +37,7 @@ private:
 
 	TSharedRef<SDockTab> OnSpawnAdvancedDeleteTab(const FSpawnTabArgs &args);
 
-	TArray<TSharedRef<FAssetData>> GetAllAssetDataUnderSelectedFolder();
+	TArray<TSharedPtr<FAssetData>> GetAllAssetDataUnderSelectedFolder();
 
 #pragma endregion
 };

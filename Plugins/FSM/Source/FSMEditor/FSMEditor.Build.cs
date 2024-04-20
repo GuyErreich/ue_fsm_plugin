@@ -32,7 +32,8 @@ public class FSMEditor : ModuleRules
 				"UnrealEd",
 				"AssetTools",
 				"AssetRegistry",
-				"ContentBrowser"
+				"ContentBrowser",
+				"InputCore"
 			}
 		);
 			
