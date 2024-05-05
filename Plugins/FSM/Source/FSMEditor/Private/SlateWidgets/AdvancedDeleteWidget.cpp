@@ -2,6 +2,7 @@
 
 
 #include "SlateWidgets/AdvancedDeleteWidget.h"
+#include "DebugHeader.h"
 
 void SAdvancedDeleteTab::Construct(const FArguments &args)
 {
@@ -56,14 +57,105 @@ void SAdvancedDeleteTab::Construct(const FArguments &args)
 
 TSharedRef<ITableRow> SAdvancedDeleteTab::OnGenerateRowForList(TSharedPtr<FAssetData> AssetData, const TSharedRef<STableViewBase> &OwnerTable)
 {
-    const FString DisplayAssetName = AssetData->AssetName.ToString();
+    if(!AssetData.IsValid()) return SNew(STableRow<TSharedPtr<FAssetData>>, OwnerTable);
+
+    const FString AssetName = AssetData->AssetName.ToString();
+    const FString AssetClass = AssetData->GetClass()->GetName();
+
+    FSlateFontInfo AssetClassNameFont = SAdvancedDeleteTab::GetEmbossedTextFont();
+    AssetClassNameFont.Size = 10;
+
+    FSlateFontInfo AssetNameFont = SAdvancedDeleteTab::GetEmbossedTextFont();
+    AssetNameFont.Size = 16;
 
     TSharedRef<STableRow<TSharedPtr<FAssetData>>> ListViewRowWidget = 
     SNew(STableRow<TSharedPtr<FAssetData>>, OwnerTable)
+    .Padding(FMargin(5.f))
     [
-        SNew(STextBlock)
-        .Text(FText::FromString(DisplayAssetName))
+        SNew(SHorizontalBox)
+
+        //First slot for checkbox
+        +SHorizontalBox::Slot()
+        .HAlign(HAlign_Left)
+        .VAlign(VAlign_Center)
+        .FillWidth(0.05f)
+        [
+            ConstructCheckBox(AssetData)
+        ]
+
+        //Second slot for displaying asset class name
+        +SHorizontalBox::Slot()
+        .HAlign(HAlign_Center)
+        .VAlign(VAlign_Center)
+        .FillWidth(0.5f)
+        [
+            ConstructTextForRowWidget(AssetClass, AssetClassNameFont)
+        ]
+
+        //Third slot for displaying asset name
+        +SHorizontalBox::Slot()
+        .HAlign(HAlign_Left)
+        .VAlign(VAlign_Fill)
+        [
+            ConstructTextForRowWidget(AssetName, AssetNameFont)
+        ]
+
+        //Forth slot for a button
+        +SHorizontalBox::Slot()
+        .HAlign(HAlign_Right)
+        .VAlign(VAlign_Fill)
+        [
+            ConstructButtonForRowWidget(AssetData)
+        ]
+
     ];
 
     return ListViewRowWidget;
+}
+
+TSharedRef<SCheckBox> SAdvancedDeleteTab::ConstructCheckBox(const TSharedPtr<FAssetData>& AssetData)
+{
+    return SNew(SCheckBox)
+    .Type(ESlateCheckBoxType::Type::CheckBox)
+    .OnCheckStateChanged(this, &SAdvancedDeleteTab::OnCheckBoxStateChanged, AssetData)
+    .Visibility(EVisibility::Visible);
+}
+
+TSharedRef<STextBlock> SAdvancedDeleteTab::ConstructTextForRowWidget(const FString& Text, const FSlateFontInfo& Font)
+{
+    return SNew(STextBlock)
+    .Text(FText::FromString(Text))
+    .Font(Font)
+    .ColorAndOpacity(FColor::White);
+}
+
+TSharedRef<SButton> SAdvancedDeleteTab::ConstructButtonForRowWidget(const TSharedPtr<FAssetData>& AssetData)
+{
+    return  SNew(SButton)
+    .Text(FText::FromString(TEXT("Delete")))
+    .OnClicked(this, &SAdvancedDeleteTab::OnDeleteButtonClicked, AssetData);
+}
+
+void SAdvancedDeleteTab::OnCheckBoxStateChanged(ECheckBoxState NewState, TSharedPtr<FAssetData> AssetData)
+{
+    switch (NewState)
+    {
+    case ECheckBoxState::Checked:
+        DebugHeader::ShowNotifyInfo(AssetData->AssetName.ToString() + TEXT(" is checked"));
+        break;
+    case ECheckBoxState::Unchecked:
+        DebugHeader::ShowNotifyInfo(AssetData->AssetName.ToString() + TEXT(" is unchecked"));
+        break;
+    case ECheckBoxState::Undetermined:
+        break;
+    default:
+        break;
+    }
+}
+
+FReply SAdvancedDeleteTab::OnDeleteButtonClicked(TSharedPtr<FAssetData> AssetData)
+{
+    DebugHeader::ShowNotifyInfo(AssetData->AssetName.ToString() + TEXT(" is clicked"));
+
+    return FReply::Handled();
 }
