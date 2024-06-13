@@ -53,25 +53,21 @@ void UStateMachine::ChangeState_Implementation(UState *NewState)
 	}
 }
 
-void UStateMachine::PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent)
-{
-	Super::PostEditChangeProperty(PropertyChangedEvent);
+// void UStateMachine::PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent)
+// {
+// 	Super::PostEditChangeProperty(PropertyChangedEvent);
 	
-	FName PropertyName = (PropertyChangedEvent.Property != NULL) ? PropertyChangedEvent.Property->GetFName() : NAME_None;
+// 	FName PropertyName = (PropertyChangedEvent.Property != NULL) ? PropertyChangedEvent.Property->GetFName() : NAME_None;
 
-	if (PropertyChangedEvent.Property && PropertyName == GET_MEMBER_NAME_CHECKED(UStateMachine, StatesNames))
-	{
-
-
-
-
-		States.Empty();
-		int32 NumEnumValues = StatesNames->NumEnums() - 1;
-		for (int32 Index = 0; Index < NumEnumValues; ++Index)
-		{
-			FString Name = StatesNames->GetDisplayNameTextByIndex(Index).ToString();
-			UE_LOG(LogTemp, Log,  TEXT("MyVariable's value is: %s"), *Name);
-			States.Add(Name, nullptr);
-		} 
-	}
-}
+// 	if (PropertyChangedEvent.Property && PropertyName == GET_MEMBER_NAME_CHECKED(UStateMachine, StatesNames))
+// 	{
+// 		States.Empty();
+// 		int32 NumEnumValues = StatesNames->NumEnums() - 1;
+// 		for (int32 Index = 0; Index < NumEnumValues; ++Index)
+// 		{
+// 			FString Name = StatesNames->GetDisplayNameTextByIndex(Index).ToString();
+// 			UE_LOG(LogTemp, Log,  TEXT("MyVariable's value is: %s"), *Name);
+// 			States.Add(Name, nullptr);
+// 		} 
+// 	}
+// }

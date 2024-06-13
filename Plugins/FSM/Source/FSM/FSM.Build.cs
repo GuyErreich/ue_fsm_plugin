@@ -25,9 +25,7 @@ public class FSM : ModuleRules
 		PublicDependencyModuleNames.AddRange(
 			new string[]
 			{
-				"Core",
-				"EditorScriptingUtilities",
-				"Niagara"
+				"Core"
 			}
 		);
 			

@@ -40,5 +40,5 @@ public:
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
     void ChangeState(UState* NewState);
 
-	virtual void PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent) override;
+	// virtual void PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent) override;
 };
